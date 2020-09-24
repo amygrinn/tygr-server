@@ -1,8 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Users } from '../models';
+type UserModel = import('../models').Users;
 
-declare global {
-  namespace Express {
-    interface User extends Users { }
-  }
+declare namespace Express {
+  export interface User extends UserModel {}
 }

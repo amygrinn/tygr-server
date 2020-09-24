@@ -1,3 +1,3 @@
 # create databases
-CREATE DATABASE IF NOT EXISTS `cron-push`;
-CREATE DATABASE IF NOT EXISTS `cron-push-test`;
+CREATE DATABASE IF NOT EXISTS `tygr-server`;
+CREATE DATABASE IF NOT EXISTS `tygr-server-test`;

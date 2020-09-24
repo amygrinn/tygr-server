@@ -1,4 +1,4 @@
-/// <reference path='../../typings/express.d.ts' />
+// / <reference path='../../typings/express.d.ts' />
 
 import { RequestHandler, Response } from 'express';
 

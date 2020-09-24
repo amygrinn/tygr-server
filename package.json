@@ -1,5 +1,5 @@
 {
-  "name": "cron-push",
+  "name": "tygr-server",
   "version": "0.1.2",
   "private": true,
   "scripts": {
@@ -8,7 +8,9 @@
     "build:w": "tsc --watch",
     "watch": "nodemon --quiet --watch bin --on-change-only --exec \"npm run --silent watch:task\"",
     "watch:task": "run-p --silent --print-label lint test:debug serve",
-    "lint": "eslint --ext .js,.ts --format visualstudio ./",
+    "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "lint": "npm run lint:fix",
     "serve": "node --require dotenv/config --enable-source-maps bin/cron-push",
     "test": "cross-env NODE_ENV=test mocha",
     "test:debug": "npm test -- --inspect --inspect-publish-uid=http --inspect-brk"
@@ -17,15 +19,12 @@
     "timeout": 5000,
     "exit": true,
     "require": [
-      "dotenv/config",
-      "bin/cron-push/environment"
+      "dotenv/config"
     ],
     "spec": "bin/**/*.spec.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "cron-parser": "^2.13.0",
-    "cronstrue": "^1.100.0",
     "cross-env": "^7.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -38,7 +37,6 @@
     "sequelize": "^6.3.5",
     "sequelize-noupdate-attributes": "^1.0.0",
     "supertest": "^4.0.2",
-    "ts-node": "^9.0.0",
     "web-push": "^3.4.3"
   },
   "devDependencies": {
@@ -47,7 +45,7 @@
     "@types/express": "^4.17.8",
     "@types/jsonwebtoken": "^8.3.5",
     "@types/luxon": "^1.25.0",
-    "@types/mocha": "^5.2.4",
+    "@types/mocha": "^5.2.7",
     "@types/passport": "^1.0.2",
     "@types/passport-jwt": "^3.0.3",
     "@types/passport-local": "^1.0.33",
@@ -55,13 +53,12 @@
     "@types/supertest": "^2.0.10",
     "@types/web-push": "^3.3.0",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^4.2.0",
     "chai": "^4.2.0",
     "eslint": "^7.9.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-config-airbnb-typescript": "^9.0.0",
-    "eslint-plugin-chai-expect": "^2.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-watch": "^7.0.0",
+    "eslint-config-alloy": "^3.8.0",
+    "eslint-plugin-chai-friendly": "^0.6.0",
     "luxon": "^1.25.0",
     "nodemon": "^2.0.1",
     "npm-run-all": "^4.1.5",

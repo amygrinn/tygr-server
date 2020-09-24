@@ -18,3 +18,7 @@ yarn-error.log*
 *.sln
 *.sw?
 debug.log
+
+/bin
+/deploy_rsa
+/deploy_rsa.pub
