@@ -1,5 +1,5 @@
 #!/bin/bash
 
-rsync --recursive --delete ../bin ../package.json ../package-lock.json tygr@tygr.tygr.info:tygr-server
+rsync --recursive --delete ../bin ../package.json ../package-lock.json tygr@$HOST:tygr-server
 
-ssh cron-push@cronpush.tygr.info 'bash -sl' < ./deploy_helper.sh
+ssh tygr@$HOST 'bash -sl' < ./deploy_helper.sh
