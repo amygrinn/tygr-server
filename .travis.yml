@@ -16,6 +16,7 @@ env:
     - MYSQL_PORT=3306
     - MYSQL_PASSWORD=
     - MYSQL_TEST_DB=tygr-server-test
+    - JWT_SECRET=shhh
 
 before_script:
   - mysql -e 'CREATE DATABASE `tygr-server-test`;'
