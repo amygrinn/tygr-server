@@ -45,7 +45,8 @@ jobs:
         - npm run build
         - npm test
       deploy:
+        edge: true
         on:
           branch: master
-        edge: true
+        provider: script
         script: bash scripts/deploy.sh
