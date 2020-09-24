@@ -1,7 +1,6 @@
 import * as Sequelize from 'sequelize';
-
-import { Users } from './users';
 import type { Notifications } from './notifications';
+import { Users } from './users';
 
 export class PushSubscriptions extends Sequelize.Model {
   public id!: string;

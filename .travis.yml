@@ -37,9 +37,15 @@ script:
   - npm run build
   - npm test
 
-deploy:
-  on:
-    branch: master
-  edge: true
-  provider: script
-  script: bash scripts/deploy.sh
+jobs:
+  include:
+    - stage: test
+      script: npm run quality:check
+    - script:
+        - npm run build
+        - npm test
+      deploy:
+        on:
+          branch: master
+        edge: true
+        script: bash scripts/deploy.sh

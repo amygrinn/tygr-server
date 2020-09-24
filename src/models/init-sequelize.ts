@@ -1,10 +1,8 @@
 import * as Sequelize from 'sequelize';
-
 import sequelizeNoUpdateAttributes from 'sequelize-noupdate-attributes';
-
-import initUsers from './users';
-import initPushSubscriptions from './push-subscriptions';
 import initNotifications from './notifications';
+import initPushSubscriptions from './push-subscriptions';
+import initUsers from './users';
 
 const sleep = (ms: number) =>
   new Promise((resolve) => {

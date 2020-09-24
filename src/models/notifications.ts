@@ -1,5 +1,4 @@
 import * as Sequelize from 'sequelize';
-
 import { Users } from './users';
 
 export class Notifications extends Sequelize.Model {

@@ -1,7 +1,5 @@
 import * as dotenv from 'dotenv';
-
 import express from 'express';
-
 import { auth, pushRouter } from './api';
 
 dotenv.config();

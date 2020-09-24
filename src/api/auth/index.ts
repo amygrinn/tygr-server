@@ -1,6 +1,5 @@
-import { Router, RequestHandler, ErrorRequestHandler } from 'express';
+import { ErrorRequestHandler, RequestHandler, Router } from 'express';
 import passport from 'passport';
-
 import * as local from './strategies/local';
 
 passport.use('register-local', local.register);
