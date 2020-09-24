@@ -18,7 +18,7 @@ env:
     - MYSQL_TEST_DB=tygr-server-test
 
 before_script:
-  - mysql -e 'CREATE DATABASE tygr-server-test;'
+  - mysql -e 'CREATE DATABASE `tygr-server-test`;'
 
 # SSH Setup
 # before_deploy:
