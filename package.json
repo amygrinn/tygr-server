@@ -8,7 +8,7 @@
     "build:w": "tsc --watch",
     "watch": "nodemon --quiet --watch bin --on-change-only --exec \"npm run --silent watch:task\"",
     "watch:task": "run-p --silent --print-label lint test:debug serve",
-    "serve": "node --require dotenv/config --enable-source-maps bin/cron-push",
+    "serve": "node --require dotenv/config --enable-source-maps bin",
     "test": "cross-env NODE_ENV=test mocha",
     "test:debug": "npm test -- --inspect --inspect-publish-uid=http --inspect-brk",
     "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx",
