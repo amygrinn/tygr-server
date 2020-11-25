@@ -3,8 +3,8 @@ os: linux
 dist: xenial
 language: node_js
 node_js: lts/*
-services:
-  - mysql
+# services:
+#   - mysql
 addons:
   ssh_known_hosts: beta.tygr.info
 
@@ -18,8 +18,8 @@ env:
     - MYSQL_TEST_DB=tygr-server-test
     - JWT_SECRET=shhh
 
-before_script:
-  - mysql -e 'CREATE DATABASE `tygr-server-test`;'
+# before_script:
+#   - mysql -e 'CREATE DATABASE `tygr-server-test`;'
 
 # SSH Setup
 before_deploy:
@@ -33,14 +33,13 @@ before_deploy:
   - chmod 600 /tmp/deploy_rsa
   - ssh-add /tmp/deploy_rsa
 
-jobs:
-  include:
-    - stage: quality
-      script: npm run quality:check
-    - script: npm run build
-      deploy:
-        edge: true
-        on:
-          branch: master
-        provider: script
-        script: bash scripts/deploy.sh
+script:
+  - npm run quality:check
+  - npm run build
+
+deploy:
+  edge: true
+  on:
+    branch: master
+  provider: script
+  script: bash scripts/deploy.sh
