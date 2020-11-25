@@ -2,5 +2,5 @@
 
 cd tygr-server
 npm ci
-npm test
+# npm test
 sudo systemctl restart tygr-server
