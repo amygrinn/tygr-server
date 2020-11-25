@@ -1,4 +1,4 @@
-import useAuth from '@tygr/auth-server';
+import useAuth, { cors } from '@tygr/auth-server';
 import * as dotenv from 'dotenv';
 import express from 'express';
 import { Users } from './models';
@@ -28,7 +28,17 @@ const [authMiddleware, authRouter] = useAuth({
 });
 
 const app = express();
-app.use(express.json(), express.urlencoded({ extended: true }), authMiddleware);
+app.use(
+  express.json(),
+  express.urlencoded({ extended: true }),
+  cors(
+    'https://tygr.info',
+    'https://tylergrinn.github.io',
+    'http://10.0.0.3:8081',
+    'http://localhost:8081'
+  ),
+  authMiddleware
+);
 
 app.use('/auth', authRouter);
 
