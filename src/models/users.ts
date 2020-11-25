@@ -1,6 +1,5 @@
 import { BaseUser } from '@tygr/auth-server';
 import * as Sequelize from 'sequelize';
-import type { PushSubscriptions } from './push-subscriptions';
 
 export interface User extends BaseUser {
   createdAt?: string;
@@ -31,10 +30,6 @@ export class Users extends Sequelize.Model {
   }
 
   public id!: string;
-
-  public getPushSubscriptions!: (
-    options?: Sequelize.FindOptions
-  ) => Promise<PushSubscriptions[]>;
 }
 
 const definition = {

@@ -1,7 +1,5 @@
 import * as Sequelize from 'sequelize';
 import sequelizeNoUpdateAttributes from 'sequelize-noupdate-attributes';
-import initNotifications from './notifications';
-import initPushSubscriptions from './push-subscriptions';
 import initUsers from './users';
 
 const sleep = (ms: number) =>
@@ -27,8 +25,6 @@ const initSequelize: () => Promise<void> = async () => {
   sequelizeNoUpdateAttributes(sequelize);
 
   initUsers(sequelize);
-  initPushSubscriptions(sequelize);
-  initNotifications(sequelize);
 
   // eslint-disable-next-line no-constant-condition
   while (true) {

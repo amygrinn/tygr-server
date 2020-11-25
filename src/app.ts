@@ -1,11 +1,12 @@
 import useAuth from '@tygr/auth-server';
 import * as dotenv from 'dotenv';
 import express from 'express';
-import { pushRouter } from './api';
+import { Users } from './models';
 
 dotenv.config();
 
 const [authMiddleware, authRouter] = useAuth({
+  Users,
   secret: process.env.SECRET!,
   async sendCode(email, code) {
     console.log('Sending reset code', email, code);
@@ -30,10 +31,5 @@ const app = express();
 app.use(express.json(), express.urlencoded({ extended: true }), authMiddleware);
 
 app.use('/auth', authRouter);
-app.use(
-  '/push',
-  (req, _res, next) => next((req as any).user ? null : 'Not authorized'),
-  pushRouter
-);
 
 export default app;
