@@ -18,7 +18,7 @@ export class Users extends Sequelize.Model {
 
   public static async findByEmail(email: string) {
     return Users.findOne({ where: { email } }).then((u) =>
-      u?.toJSON()
+      u ? u.toJSON() : null
     ) as Promise<User>;
   }
 
