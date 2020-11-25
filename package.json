@@ -30,7 +30,7 @@
     "spec": "bin/**/*.spec.js"
   },
   "dependencies": {
-    "@tygr/auth-server": "0.0.2-beta",
+    "@tygr/auth-server": "0.0.4-beta",
     "bcrypt": "^5.0.0",
     "cross-env": "^7.0.0",
     "dotenv": "^8.2.0",
