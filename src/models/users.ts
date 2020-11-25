@@ -44,7 +44,7 @@ const definition = {
   },
   password: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   provider: {
     type: Sequelize.STRING,
