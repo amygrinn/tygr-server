@@ -7,8 +7,9 @@
     "build": "tsc",
     "build:w": "tsc --watch",
     "watch": "nodemon --quiet --watch bin --on-change-only --exec \"npm run --silent watch:task\"",
-    "watch:task": "run-p --silent --print-label lint test:debug serve",
+    "watch:task": "run-p --silent --print-label lint test:debug serve:https",
     "serve": "node --require dotenv/config --enable-source-maps bin",
+    "serve:https": "node --require dotenv/config --enable-source-maps bin/https",
     "test": "cross-env NODE_ENV=test mocha",
     "test:debug": "npm test -- --inspect --inspect-publish-uid=http --inspect-brk",
     "lint:check": "eslint . --ext .js,.jsx,.ts,.tsx",
@@ -30,7 +31,7 @@
     "spec": "bin/**/*.spec.js"
   },
   "dependencies": {
-    "@tygr/auth-server": "0.0.6-beta",
+    "@tygr/auth-server": "^1.0.0",
     "bcrypt": "^5.0.0",
     "cross-env": "^7.0.0",
     "dotenv": "^8.2.0",
