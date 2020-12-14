@@ -1,15 +1,15 @@
 import useAuth, { cors } from '@tygr/auth-server';
 import * as dotenv from 'dotenv';
 import express from 'express';
+import apiRouter from './api';
+import { sendCode } from './mail/send-code';
 import { Users } from './models';
 
 dotenv.config();
 
 const [authMiddleware, authRouter] = useAuth({
   Users,
-  async sendCode(email, code) {
-    console.log('Sending reset code', email, code);
-  },
+  sendCode,
 });
 
 const app = express();
@@ -21,5 +21,6 @@ app.use(
 );
 
 app.use('/auth', authRouter);
+app.use(apiRouter);
 
 export default app;
